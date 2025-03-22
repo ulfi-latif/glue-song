@@ -29,13 +29,9 @@ window.onload = function () {
     let playMusic = confirm("Let's play this song!");
 
     if (playMusic) {
-        document.body.addEventListener("click", function playOnClick() {
-            song.play();
-            document.body.removeEventListener("click", playOnClick); // Hapus listener setelah sekali klik
-        });
+        song.play(); // Lagu langsung diputar setelah konfirmasi
     }
 };
-
 
 song.addEventListener("timeupdate", function () {
     let currentTime = song.currentTime;
