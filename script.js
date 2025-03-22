@@ -27,13 +27,11 @@ const lyrics = [
 
 window.onload = function () {
     let playMusic = confirm("Let's play this song!");
-    
+
     if (playMusic) {
-        song.muted = false; 
-        song.play().then(() => {
-            console.log("Lagu diputar!");
-        }).catch(error => {
-            console.log("Autoplay masih diblokir, menunggu interaksi...");
+        document.body.addEventListener("click", function playOnClick() {
+            song.play();
+            document.body.removeEventListener("click", playOnClick); // Hapus listener setelah sekali klik
         });
     }
 };
