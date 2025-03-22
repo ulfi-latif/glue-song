@@ -26,15 +26,18 @@ const lyrics = [
 ];
 
 window.onload = function () {
-    song.muted = true; // Mute sementara agar bisa autoplay
-    song.play().catch(error => console.log("Autoplay gagal:", error));
-
     let playMusic = confirm("Let's play this song!");
+    
     if (playMusic) {
-        song.muted = false; // Unmute setelah konfirmasi
-        song.play();
+        song.muted = false; 
+        song.play().then(() => {
+            console.log("Lagu diputar!");
+        }).catch(error => {
+            console.log("Autoplay masih diblokir, menunggu interaksi...");
+        });
     }
 };
+
 
 song.addEventListener("timeupdate", function () {
     let currentTime = song.currentTime;
