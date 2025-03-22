@@ -37,6 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, 1000);
 
+    
+
     // Update lirik sesuai waktu lagu
     audio.addEventListener("timeupdate", () => {
         let currentTime = audio.currentTime;
@@ -46,3 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+const song = document.getElementById("song");
+
+window.onload = function () {
+    let playMusic = confirm("Klik OK untuk memutar lagu.");
+    if (playMusic) {
+        song.play().catch(error => console.log("Autoplay gagal:", error));
+    }
+};
