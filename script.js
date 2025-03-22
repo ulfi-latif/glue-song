@@ -22,6 +22,7 @@ function updateLyrics() {
     if (currentLyric) {
         lyricsContainer.textContent = currentLyric.text;
     }
+    console.log(song.currentTime);
 }
 
 song.addEventListener("timeupdate", updateLyrics);
