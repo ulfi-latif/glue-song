@@ -30,3 +30,9 @@ function updateLyrics() {
 }
 
 song.addEventListener("timeupdate", updateLyrics);
+document.addEventListener("DOMContentLoaded", function () {
+    let audio = document.getElementById("song");
+    document.body.addEventListener("click", function () {
+        audio.play();
+    }, { once: true }); // Hanya dijalankan sekali
+});
