@@ -26,9 +26,13 @@ const lyrics = [
 ];
 
 window.onload = function () {
+    song.muted = true; // Mute sementara agar bisa autoplay
+    song.play().catch(error => console.log("Autoplay gagal:", error));
+
     let playMusic = confirm("Let's play this song!");
     if (playMusic) {
-        song.play().catch(error => console.log("Autoplay gagal:", error));
+        song.muted = false; // Unmute setelah konfirmasi
+        song.play();
     }
 };
 
